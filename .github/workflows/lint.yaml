@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [ 3.9, 3.10, 3.11, 3.12 ]
+        python-version: [ 3.11, 3.12 ]
     steps:
       - uses: actions/checkout@v3
       - name: Set up poetry
@@ -31,5 +31,7 @@ jobs:
         run: poetry install --no-root
       - name: Lint with pylint and black
         run: |
+          chmod +x ./scripts/run_pylint.sh
+          chmod +x ./scripts/run_black.sh
           poetry run ./scripts/run_pylint.sh
           poetry run ./scripts/run_black.sh
