@@ -1,5 +1,4 @@
 import os
-import re
 from collections import Counter
 
 SAMPLE_INPUT = """32T3K 765
